@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#101810">
+        <meta name="description" content="PA600 Vault, perjalanan menabung menuju keyboard impian.">
+        <title>PA600 Vault | My Dream Fund</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="pinScreen" class="pin-screen">
+            <div class="pin-card">
+                <div class="pin-logo">♬</div>
+                <p class="eyebrow">PA600 VAULT SECURITY</p>
+                <h1 id="pinTitle">SELAMAT DATANG</h1>
+                <p id="pinDescription" class="muted">
+                Buat PIN 6 digit untuk melindungi dashboard tabunganmu.
+                </p>
+
+                <div id="pinDots" class="pin-dots" aria-label="PIN belum lengkap">
+                ○ ○ ○ ○ ○ ○
+                </div>
+
+                <p id="pinMessage" class="pin-message" aria-live="polite">
+                Masukkan 6 digit PIN
+                </p>
+
+                <div class="pin-keypad">
+                <button type="button" data-pin-key="1">1</button>
+                <button type="button" data-pin-key="2">2</button>
+                <button type="button" data-pin-key="3">3</button>
+                <button type="button" data-pin-key="4">4</button>
+                <button type="button" data-pin-key="5">5</button>
+                <button type="button" data-pin-key="6">6</button>
+                <button type="button" data-pin-key="7">7</button>
+                <button type="button" data-pin-key="8">8</button>
+                <button type="button" data-pin-key="9">9</button>
+                <button type="button" data-pin-action="clear">⌫</button>
+                <button type="button" data-pin-key="0">0</button>
+                <button type="button" data-pin-action="enter">✓</button>
+                </div>
+
+                <button id="forgotPinBtn" class="forgot-pin" type="button" hidden>
+                Lupa PIN? Reset akses lokal
+                </button>
+                <p class="pin-warning">
+                PIN ini adalah kunci privasi sederhana, bukan perlindungan data tingkat tinggi.
+                </p>
+            </div>
+        </div>
+        <div class="app-shell">
+            <header class="topbar">
+            <a class="brand" href="#" aria-label="PA600 Vault">
+                <span class="brand-icon">♬</span>
+                <span>PA600<span class="brand-light"> VAULT</span></span>
+            </a>
+            <span class="local-badge"><span></span> LOCAL MODE</span>
+            </header>
+
+            <main>
+            <section class="hero">
+                <div class="hero-copy">
+                <p class="eyebrow">YOUR DREAM. YOUR DISCIPLINE.</p>
+                <h1>Satu setoran lebih dekat ke <span>panggung impian.</span></h1>
+                <p class="hero-description">
+                    Perjalanan kecil hari ini, keyboard impian suatu hari nanti.
+                </p>
+                </div>
+                <div class="dream-card">
+                <div class="keyboard-art" aria-hidden="true">♫</div>
+                <p class="dream-label">THE DREAM KEYBOARD</p>
+                <h2>Korg PA600</h2>
+                <p class="muted">Arranger Keyboard</p>
+                <div class="dream-divider"></div>
+                <p class="muted small">TARGET TABUNGAN</p>
+                <strong id="targetLabel">Rp5.000.000</strong>
+                <button id="editTargetBtn" class="button button-outline">
+                    Ubah target
+                </button>
+                </div>
+            </section>
+
+            <section class="stats-grid" aria-label="Ringkasan tabungan">
+                <article class="stat-card">
+                <p class="stat-label">TOTAL TABUNGAN</p>
+                <strong id="balance">Rp0</strong>
+                <span class="stat-foot">Uang yang sudah terkumpul</span>
+                </article>
+                <article class="stat-card accent-card">
+                <p class="stat-label">SISA MENUJU TARGET</p>
+                <strong id="remainingAmount">Rp5.000.000</strong>
+                <span class="stat-foot">Perjalanan masih berlanjut</span>
+                </article>
+                <article class="stat-card">
+                <p class="stat-label">TOTAL SETORAN</p>
+                <strong id="depositCount">0</strong>
+                <span class="stat-foot">Transaksi tercatat</span>
+                </article>
+            </section>
+
+            <section class="panel progress-panel">
+                <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR PROGRESS</p>
+                    <h2>Langkah demi langkah</h2>
+                </div>
+                <strong id="progressText" class="progress-percent">0%</strong>
+                </div>
+                <div
+                id="progressTrack"
+                class="progress-track"
+                role="progressbar"
+                aria-label="Progres tabungan"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                >
+                <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <div class="progress-meta">
+                <span id="progressCaption">Ayo mulai perjalananmu!</span>
+                <span id="targetSmallLabel">Target Rp5.000.000</span>
+                </div>
+                <div class="milestones">
+                <div class="milestone" data-milestone="25">
+                    <span class="milestone-dot">25</span><span>25%</span>
+                </div>
+                <div class="milestone" data-milestone="50">
+                    <span class="milestone-dot">50</span><span>50%</span>
+                </div>
+                <div class="milestone" data-milestone="75">
+                    <span class="milestone-dot">75</span><span>75%</span>
+                </div>
+                <div class="milestone" data-milestone="100">
+                    <span class="milestone-dot">★</span><span>100%</span>
+                </div>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <section class="panel">
+                <div class="section-heading">
+                    <div>
+                    <p class="eyebrow">NEW TRANSACTION</p>
+                    <h2>Tambah setoran</h2>
+                    </div>
+                    <span class="heading-icon">＋</span>
+                </div>
+                <form id="depositForm">
+                    <label for="amount">Nominal setoran (rupiah)</label>
+                    <div class="input-wrap">
+                        <span>Rp</span>
+                        <input
+                            id="amount"
+                            name="amount"
+                            type="number"
+                            min="1"
+                            step="1"
+                            placeholder="100000"
+                            required
+                        >
+                    </div>
+                    <p class="field-hint">Masukkan angka tanpa titik, misalnya 100000.</p>
+
+                    <label for="depositDate">Tanggal setoran</label>
+                    <input id="depositDate" name="date" type="date" required>
+
+                    <label for="note">Catatan</label>
+                    <input
+                    id="note"
+                    name="note"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Contoh: uang saku mingguan"
+                    >
+
+                    <button class="button button-primary full-button" type="submit">
+                    Simpan setoran <span>↗</span>
+                    </button>
+                </form>
+                </section>
+
+                <section class="panel">
+                <div class="section-heading">
+                    <div>
+                    <p class="eyebrow">THE ROAD AHEAD</p>
+                    <h2>Estimasi impian</h2>
+                    </div>
+                    <span class="heading-icon">⌁</span>
+                </div>
+                <div class="estimate-box">
+                    <p class="muted">Perkiraan target tercapai</p>
+                    <strong id="targetDate">Belum dihitung</strong>
+                    <p id="estimateDuration" class="estimate-duration">Atur setoran mingguanmu.</p>
+                </div>
+
+                <form id="weeklyForm">
+                    <label for="weeklyGoal">Rencana setoran per minggu (rupiah)</label>
+                    <input
+                    id="weeklyGoal"
+                    type="number"
+                    min="1"
+                    step="1"
+                    value="100000"
+                    required
+                    >
+                    <button class="button button-outline full-button" type="submit">
+                    Simpan rencana
+                    </button>
+                </form>
+                <p class="field-hint">
+                    Estimasi berdasarkan rencana setoran, bukan janji tanggal pasti.
+                </p>
+                </section>
+            </div>
+
+            <section class="panel">
+                <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR JOURNEY</p>
+                    <h2>Riwayat setoran</h2>
+                </div>
+                <span id="historyCount" class="muted small">0 transaksi</span>
+                </div>
+                <div id="history" class="history-list">
+                <div class="empty-state">Belum ada setoran. Mulai dari langkah pertama!</div>
+                </div>
+            </section>
+
+            <section class="panel backup-panel">
+                <div>
+                <p class="eyebrow">YOUR DATA, YOUR CONTROL</p>
+                <h2>Backup data</h2>
+                <p class="muted small">
+                    Data disimpan di browser ini. Ekspor backup secara berkala agar
+                    riwayatmu tidak hilang jika data browser terhapus.
+                </p>
+                </div>
+                <div class="backup-actions">
+                <button id="exportBtn" class="button button-outline" type="button">
+                    Ekspor backup
+                </button>
+                <label class="button button-outline import-label" for="importFile">
+                    Impor backup
+                </label>
+                <input id="importFile" type="file" accept=".json,application/json" hidden>
+                </div>
+            </section>
+            </main>
+
+            <footer>
+            <span>PA600 VAULT</span>
+            <span>Dibangun dari konsistensi, satu nada setiap hari. ♬</span>
+            </footer>
+        </div>
+
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+        <dialog id="targetDialog" class="modal">
+            <form id="targetForm" class="modal-content">
+            <p class="eyebrow">DREAM SETTINGS</p>
+            <h2>Ubah target tabungan</h2>
+            <label for="newTarget">Target baru (rupiah)</label>
+            <input id="newTarget" type="number" min="1" step="1" required>
+            <div class="modal-actions">
+                <button id="cancelTargetBtn" class="button button-outline" type="button">
+                Batal
+                </button>
+                <button class="button button-primary" type="submit">
+                Simpan target
+                </button>
+            </div>
+            </form>
+        </dialog>
+    </body>
+</html>
